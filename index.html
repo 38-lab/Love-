@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ananya ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+/* floating hearts */
+.heart {
+    position: absolute;
+    bottom: -10px;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+@keyframes float {
+    to { transform: translateY(-110vh); opacity: 0; }
+}
+
+.container { text-align: center; z-index: 2; }
+.hidden { display: none; }
+
+input {
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: #ff4d6d;
+    font-weight: bold;
+}
+
+.gallery img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.note {
+    margin-top: 20px;
+    font-size: 17px;
+    max-width: 320px;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div id="lockScreen" class="container">
+    <h2>For Ananya 💌</h2>
+    <p>Enter Passcode</p>
+    <input type="password" id="pass">
+    <br>
+    <button onclick="unlock()">Unlock</button>
+    <p id="error"></p>
+</div>
+
+<div id="main" class="container hidden">
+    <h2>Hey Anu ❤️</h2>
+
+    <div class="gallery">
+        <img src="https://files.catbox.moe/1.jpg">
+        <img src="https://files.catbox.moe/2.jpg">
+        <img src="https://files.catbox.moe/3.jpg">
+        <img src="https://files.catbox.moe/4.jpg">
+        <img src="https://files.catbox.moe/5.jpg">
+    </div>
+
+    <div class="note">
+        To the person who made me believe in soulmates. ❤️<br><br>
+        I love you so much anu, these past months have been the best I've ever experienced.  
+        Every up, every down — I love everything with you. 💫<br><br>
+
+        I’m really excited to come to Bangalore again where I get to hang out with you in hamaare flat. 🥺  
+        I love the person you are and I adore you so much.<br><br>
+
+        I could say much more… but nani bula rahi hai 😭❤️<br><br>
+
+        Yours only,<br>
+        Mahit
+    </div>
+</div>
+
+<script>
+const correct = "1111";
+
+function unlock() {
+    if (document.getElementById("pass").value === correct) {
+        document.getElementById("lockScreen").classList.add("hidden");
+        document.getElementById("main").classList.remove("hidden");
+    } else {
+        document.getElementById("error").innerText = "Wrong passcode 😤";
+    }
+}
+
+/* hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (10 + Math.random()*20) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 400);
+</script>
+
+</body>
+</html>
